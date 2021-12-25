@@ -1,5 +1,5 @@
 //
-//  GroupsTableViewController.swift
+//  AllGroupTableViewController.swift
 //  VKApp
 //
 //  Created by Alla Shkolnik on 18.12.2021.
@@ -7,27 +7,19 @@
 
 import UIKit
 
-class GroupsTableViewController: UITableViewController {
+class AllGroupTableViewController: UITableViewController {
     
-    var groups = [Group]()
-                  
-    @IBAction func addGroup(segue: UIStoryboardSegue) {
-        guard
-            segue.identifier == "addGroup",
-            let allGroupsController = segue.source as? AllGroupTableViewController,
-            let groupIndexPath = allGroupsController.tableView.indexPathForSelectedRow
-        else { return }
-        let group = allGroupsController.groups[groupIndexPath.row]
-        if !self.groups.contains(group) {
-            self.groups.append(allGroupsController.groups[groupIndexPath.row])
-        }
-        tableView.reloadData()
-    }
+    var groups = [
+        Group(title: "Swift developers", image: UIImage(
+            named: "groupPhoto2.jpg")),
+        Group(title: "Apple insider", image: nil),
+        Group(title: "wathcing WWDC together'22", image: nil),
+        Group(title: "Freelance office jobs for Swift developers",
+              image: UIImage(named: "groupPhoto1.jpg"))]
 
-    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.register(
             UINib(nibName: "ImageCell", bundle: nil),
             forCellReuseIdentifier: "imageCell")
@@ -63,13 +55,11 @@ class GroupsTableViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(
-        _ tableView: UITableView,
-        commit editingStyle: UITableViewCell.EditingStyle,
-        forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            groups.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        defer {tableView.deselectRow(
+            at: indexPath,
+            animated: true) }
+        performSegue(withIdentifier: "addGroup", sender: nil)
     }
+
 }

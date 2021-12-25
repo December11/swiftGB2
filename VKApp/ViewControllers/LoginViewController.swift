@@ -12,14 +12,8 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var stackBottomConstraint: NSLayoutConstraint!
-    
     @IBAction func loginButton(_ sender: UIButton) {
-//        if checkUser() else {
-//            presentAlert()
-//        }
     }
-    
-    
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -69,7 +63,7 @@ class LoginViewController: UIViewController {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch identifier {
         case "goToMain":
-            if !checkUser() {
+            if !checkUser(correctUsername: "", correctPassword: "") {
                 presentAlert()
                 return false
             } else {
