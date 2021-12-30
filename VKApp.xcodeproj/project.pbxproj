@@ -14,9 +14,11 @@
 		BA4CDE052777757500B14B00 /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4CDE032777757500B14B00 /* ImageCollectionCell.swift */; };
 		BA4CDE062777757500B14B00 /* ImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA4CDE042777757500B14B00 /* ImageCollectionCell.xib */; };
 		BA4CDE09277797A300B14B00 /* GroupsEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4CDE08277797A300B14B00 /* GroupsEquatable.swift */; };
+		BA4CDE0B277BA73900B14B00 /* UIView+Inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4CDE0A277BA73900B14B00 /* UIView+Inspectable.swift */; };
+		BA772F44277E1F9E00EE46BD /* LikeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA772F43277E1F9E00EE46BD /* LikeStorage.swift */; };
 		BA7B7A4B276E402F000506F2 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B7A4A276E402F000506F2 /* FriendsTableViewController.swift */; };
 		BA7B7A4D276E404E000506F2 /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B7A4C276E404E000506F2 /* GroupsTableViewController.swift */; };
-		BA7B7A4F276E4074000506F2 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B7A4E276E4074000506F2 /* PhotosCollectionViewController.swift */; };
+		BA7B7A4F276E4074000506F2 /* FriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B7A4E276E4074000506F2 /* FriendCollectionViewController.swift */; };
 		BA7B7A51276E4194000506F2 /* AllGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B7A50276E4194000506F2 /* AllGroupTableViewController.swift */; };
 		BA7BB1B7276BCA2800E12B03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BABCEB2F276A699700C0ED3E /* Main.storyboard */; };
 		BABCEB2A276A699700C0ED3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABCEB29276A699700C0ED3E /* AppDelegate.swift */; };
@@ -34,9 +36,11 @@
 		BA4CDE032777757500B14B00 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
 		BA4CDE042777757500B14B00 /* ImageCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionCell.xib; sourceTree = "<group>"; };
 		BA4CDE08277797A300B14B00 /* GroupsEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsEquatable.swift; sourceTree = "<group>"; };
+		BA4CDE0A277BA73900B14B00 /* UIView+Inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Inspectable.swift"; sourceTree = "<group>"; };
+		BA772F43277E1F9E00EE46BD /* LikeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeStorage.swift; sourceTree = "<group>"; };
 		BA7B7A4A276E402F000506F2 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		BA7B7A4C276E404E000506F2 /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
-		BA7B7A4E276E4074000506F2 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
+		BA7B7A4E276E4074000506F2 /* FriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewController.swift; sourceTree = "<group>"; };
 		BA7B7A50276E4194000506F2 /* AllGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupTableViewController.swift; sourceTree = "<group>"; };
 		BABCEB26276A699700C0ED3E /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BABCEB29276A699700C0ED3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			children = (
 				BA1D5BAD27775EFD003CC32D /* Friend.swift */,
 				BA1D5BAF27776112003CC32D /* Group.swift */,
+				BA772F43277E1F9E00EE46BD /* LikeStorage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				BA4CDE08277797A300B14B00 /* GroupsEquatable.swift */,
+				BA4CDE0A277BA73900B14B00 /* UIView+Inspectable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -157,7 +163,7 @@
 			children = (
 				BABCEB2D276A699700C0ED3E /* LoginViewController.swift */,
 				BA7B7A4A276E402F000506F2 /* FriendsTableViewController.swift */,
-				BA7B7A4E276E4074000506F2 /* PhotosCollectionViewController.swift */,
+				BA7B7A4E276E4074000506F2 /* FriendCollectionViewController.swift */,
 				BA7B7A4C276E404E000506F2 /* GroupsTableViewController.swift */,
 				BA7B7A50276E4194000506F2 /* AllGroupTableViewController.swift */,
 			);
@@ -242,11 +248,13 @@
 				BA7B7A4D276E404E000506F2 /* GroupsTableViewController.swift in Sources */,
 				BABCEB2A276A699700C0ED3E /* AppDelegate.swift in Sources */,
 				BA4CDE052777757500B14B00 /* ImageCollectionCell.swift in Sources */,
+				BA4CDE0B277BA73900B14B00 /* UIView+Inspectable.swift in Sources */,
 				BA1D5BB027776112003CC32D /* Group.swift in Sources */,
 				BA1D5BAA27775A1B003CC32D /* ImageCell.swift in Sources */,
+				BA772F44277E1F9E00EE46BD /* LikeStorage.swift in Sources */,
 				BA1D5BAE27775EFD003CC32D /* Friend.swift in Sources */,
 				BA7B7A51276E4194000506F2 /* AllGroupTableViewController.swift in Sources */,
-				BA7B7A4F276E4074000506F2 /* PhotosCollectionViewController.swift in Sources */,
+				BA7B7A4F276E4074000506F2 /* FriendCollectionViewController.swift in Sources */,
 				BA7B7A4B276E402F000506F2 /* FriendsTableViewController.swift in Sources */,
 				BABCEB2C276A699700C0ED3E /* SceneDelegate.swift in Sources */,
 			);

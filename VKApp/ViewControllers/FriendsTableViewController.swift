@@ -30,18 +30,18 @@ class FriendsTableViewController: UITableViewController {
                userPhoto: UIImage(named: "photo6.png")),
         Friend(firstName: "Danila",
                secondName: "Kovchiy",
-               userPhoto: UIImage(named: "photo7.png"))
+               userPhoto: UIImage(named: "photo7.png")),
+        Friend(firstName: "Alex", secondName: "La Cruse", userPhoto: nil)
     ]
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPhotos" {
             guard
                 let photosController = segue.destination
-                    as? PhotosCollectionViewController,
+                    as? FriendCollectionViewController,
                 let indexPath = sender as? IndexPath
             else { return }
-            photosController.image = self.friends[indexPath.row].userPhoto
-                    
+            photosController.friend = self.friends[indexPath.row]
         }
     }
 
@@ -81,9 +81,11 @@ class FriendsTableViewController: UITableViewController {
             
         let currentFriend = friends[indexPath.row]
             
-        cell.configureCell(
+        currentFriend.userPhoto != nil
+        ? cell.configureCell(
             userPic: currentFriend.userPhoto,
             label: currentFriend.userName)
+            : cell.configureCell(label: currentFriend.userName, color: currentFriend.colorCode)
 
         return cell
     }

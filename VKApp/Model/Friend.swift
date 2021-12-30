@@ -2,7 +2,7 @@
 //  Friend.swift
 //  VKApp
 //
-//  Created by 👩🏻‍🎨 📱 december11 on 25.12.2021.
+//  Created by Alla Shkolnik on 25.12.2021.
 //
 
 import Foundation
@@ -15,10 +15,16 @@ final class Friend {
         firstName + " " + secondName
     }
     var userPhoto: UIImage?
+    var isLike = false
+    let colorCode: CGColor
     
     init(firstName: String, secondName: String, userPhoto: UIImage?) {
         self.firstName = firstName
         self.secondName = secondName
-        self.userPhoto = userPhoto ?? UIImage(systemName: "person.fill")
+        self.userPhoto = userPhoto ?? nil
+        colorCode = CGColor(red: CGFloat.random(in: 155...255)/255,
+                        green: CGFloat.random(in: 155...255)/255,
+                        blue: CGFloat.random(in: 155...255)/255,
+                        alpha: 1.0)
     }
 }

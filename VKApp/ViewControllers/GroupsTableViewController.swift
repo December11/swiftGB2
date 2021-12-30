@@ -56,9 +56,11 @@ class GroupsTableViewController: UITableViewController {
             
         let currentGroup = groups[indexPath.row]
             
-        cell.configureCell(
-            userPic: currentGroup.groupPicture,
-            label: currentGroup.title)
+        currentGroup.groupPicture != nil
+            ? cell.configureCell(
+                userPic: currentGroup.groupPicture,
+                label: currentGroup.title)
+            : cell.configureCell(label: currentGroup.title, color: currentGroup.colorCode)
 
         return cell
     }
