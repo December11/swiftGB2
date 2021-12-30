@@ -15,9 +15,8 @@ class ImageCell: UITableViewCell {
     @IBOutlet weak var userPicView: UIView!
     
     func configureCell(userPic: UIImage?, label: String) {
-        self.photo.image = userPic ?? UIImage(systemName: "photo.fill")
+        self.photo.image = userPic ?? nil
         self.label.text = label
-        
     }
     
     func configureCell(label: String, color: CGColor) {
@@ -62,7 +61,7 @@ class ImageCell: UITableViewCell {
                 abbrevation += substring.prefix(1)
             }
         }
-        return abbrevation
+        return abbrevation.uppercased()
     }
 
     

@@ -8,15 +8,9 @@
 import UIKit
 
 class AllGroupTableViewController: UITableViewController {
-    
-    var groups = [
-        Group(title: "Swift developers", image: UIImage(
-            named: "groupPhoto2.jpg")),
-        Group(title: "Apple insider", image: nil),
-        Group(title: "wathcing WWDC together'22", image: nil),
-        Group(title: "Freelance office jobs for Swift developers",
-              image: UIImage(named: "groupPhoto1.jpg"))]
 
+    let groups = GroupStorage.shared.groups
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

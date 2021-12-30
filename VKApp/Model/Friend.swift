@@ -5,7 +5,6 @@
 //  Created by Alla Shkolnik on 25.12.2021.
 //
 
-import Foundation
 import UIKit
 
 final class Friend {
