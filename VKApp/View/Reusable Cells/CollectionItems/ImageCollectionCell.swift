@@ -9,10 +9,10 @@ import UIKit
 
 class ImageCollectionCell: UICollectionViewCell {
 
-    @IBOutlet var photo: UIImageView!
+    @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var likeButton: UIButton!
     
-    var friend: Friend?
+    var photo: Photo?
     
     override func awakeFromNib() {
         likeButton.setTitle("", for: .normal)
@@ -24,14 +24,13 @@ class ImageCollectionCell: UICollectionViewCell {
     @IBAction func likeButtonPressed (_ sender: UIButton) {
         sender.isSelected.toggle()
         sender.backgroundColor = .white
-        friend?.isLike = sender.isSelected
+        photo?.isLike = sender.isSelected
     }
     
-    func configureItem(friend: Friend?) {
-        self.friend = friend
-        photo.image = friend?.userPhoto ?? UIImage(systemName: "photo")
-        likeButton.isSelected = friend?.isLike ?? false
+    func configureItem(picture: Photo?) {
+        self.photo = picture
+        self.photoImageView.image = picture?.img ?? nil 
+        likeButton.isSelected = picture?.isLike ?? false
         
     }
-    
 }

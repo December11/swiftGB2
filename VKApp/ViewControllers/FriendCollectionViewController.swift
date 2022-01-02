@@ -19,7 +19,7 @@ class FriendCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return friend?.photos.count ?? 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -29,7 +29,7 @@ class FriendCollectionViewController: UICollectionViewController {
                 for: indexPath)
                 as? ImageCollectionCell
         else { return UICollectionViewCell() }
-        cell.configureItem(friend: friend)
+        cell.configureItem(picture: friend?.photos[indexPath.row])
         return cell
     }
 

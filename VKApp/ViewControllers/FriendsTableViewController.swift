@@ -12,25 +12,23 @@ class FriendsTableViewController: UITableViewController {
     var friends = [
         Friend(firstName: "Anna",
                secondName: "Mitchel",
-               userPhoto: UIImage(named: "photo1.png")),
+               userPhoto: Photo(image: UIImage(named: "photo1.png"))),
         Friend(firstName: "Gregory",
                secondName: "Lass",
-               userPhoto: UIImage(named: "photo2.png")),
+               userPhoto: Photo(image: UIImage(named: "photo2.png"))),
         Friend(firstName: "Kate",
                secondName: "Bolac",
-               userPhoto: UIImage(named: "photo3.png")),
+               userPhoto: Photo(image: UIImage(named: "photo3.png"))),
         Friend(firstName: "Alice",
                secondName: "Morgan",
-               userPhoto: UIImage(named: "photo4.png")),
+               userPhoto: Photo(image: UIImage(named: "photo4.png"))),
         Friend(firstName: "Peter",
                secondName: "Bosko",
-               userPhoto: UIImage(named: "photo5.png")),
-        Friend(firstName: "Ann",
-               secondName: "Wood",
-               userPhoto: UIImage(named: "photo6.png")),
+               userPhoto: Photo(image: UIImage(named: "photo5.png"))),
+        Friend(firstName: "Ann", secondName: "Wood", userPhoto: nil),
         Friend(firstName: "Danila",
                secondName: "Kovchiy",
-               userPhoto: UIImage(named: "photo7.png")),
+               userPhoto: Photo(image: UIImage(named: "photo7.png"))),
         Friend(firstName: "Alex", secondName: "La Cruse", userPhoto: nil)
     ]
     
@@ -80,10 +78,13 @@ class FriendsTableViewController: UITableViewController {
         else { return UITableViewCell() }
             
         let currentFriend = friends[indexPath.row]
+            if indexPath.row <= 3 {
+                friends[indexPath.row].photos.append(Photo(image: UIImage(named: "photo6.png")))
+            }
             
         currentFriend.userPhoto != nil
         ? cell.configureCell(
-            userPic: currentFriend.userPhoto,
+            userPic: currentFriend.userPhoto?.img,
             label: currentFriend.userName)
             : cell.configureCell(label: currentFriend.userName, color: currentFriend.colorCode)
 
