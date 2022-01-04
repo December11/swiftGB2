@@ -2,7 +2,7 @@
 //  UIView+Inspectable.swift
 //  VKApp
 //
-//  Created by 👩🏻‍🎨 📱 december11 on 28.12.2021.
+//  Created by Alla Shkolnik on 28.12.2021.
 //
 
 import UIKit

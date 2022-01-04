@@ -2,7 +2,7 @@
 //  Photo.swift
 //  VKApp
 //
-//  Created by 👩🏻‍🎨 📱 december11 on 03.01.2022.
+//  Created by Alla Shkolnik on 03.01.2022.
 //
 
 import UIKit

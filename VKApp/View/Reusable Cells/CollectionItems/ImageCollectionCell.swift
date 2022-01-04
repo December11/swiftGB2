@@ -2,7 +2,7 @@
 //  imageCollectionCell.swift
 //  VKApp
 //
-//  Created by 👩🏻‍🎨 📱 december11 on 25.12.2021.
+//  Created by Alla Shkolnik on 25.12.2021.
 //
 
 import UIKit
