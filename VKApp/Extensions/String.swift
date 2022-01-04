@@ -5,11 +5,10 @@
 //  Created by 👩🏻‍🎨 📱 december11 on 04.01.2022.
 //
 
-import Foundation
+import UIKit
 
 extension String {
-    
-    func getWordsCount() -> Int {
+    var wordsCount: Int {
         var temp = self.count > 0 ? 1 : 0
         for symbol in self {
             if symbol == " " {
@@ -18,14 +17,14 @@ extension String {
         }
         return temp
     }
-
-    func getAcronym() -> String? {
+    
+    var acronym: String? {
         guard
-            self.getWordsCount() != 0
+            self.wordsCount != 0
         else { return nil }
         
         var abbrevation = ""
-        if self.getWordsCount() == 1 {
+        if self.wordsCount == 1 {
             abbrevation += self.prefix(1)
             return abbrevation
         } else {
@@ -36,5 +35,10 @@ extension String {
             }
         }
         return abbrevation.uppercased()
+    }
+    
+    var bold: NSMutableAttributedString {
+        let attributes = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17)]
+        return NSMutableAttributedString(string: self, attributes: attributes)
     }
 }

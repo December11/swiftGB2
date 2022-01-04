@@ -40,12 +40,7 @@ class AllGroupTableViewController: UITableViewController {
         else { return UITableViewCell() }
             
         let currentGroup = groups[indexPath.row]
-            
-        currentGroup.groupPicture != nil
-            ? cell.configureCell(
-                userPic: currentGroup.groupPicture,
-                label: currentGroup.title)
-            : cell.configureCell(label: currentGroup.title, color: currentGroup.colorCode)
+            cell.configureCell(label: currentGroup.title, additionalLabel: nil, picture: currentGroup.groupPicture, color: currentGroup.codeColor)
             
         return cell
     }

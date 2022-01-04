@@ -14,16 +14,24 @@ class ImageCell: UITableViewCell {
     @IBOutlet weak var abbreviationLabel: UILabel!
     @IBOutlet weak var userPicView: UIView!
     
-    func configureCell(userPic: UIImage?, label: String) {
-        self.photo.image = userPic ?? nil
-        self.label.text = label
-    }
-    
-    func configureCell(label: String, color: CGColor) {
-        userPicView.layer.backgroundColor = color
-        
-        self.abbreviationLabel.text = label.getAcronym()
-        self.label.text = label
+    func configureCell(
+        label: String,
+        additionalLabel: String?,
+        picture: UIImage?,
+        color: CGColor?) {
+            
+        // делаем фамилию жирной, если это список друзей
+        let attributedString = NSMutableAttributedString(string: label)
+        if let secondName = additionalLabel {
+            attributedString.append(NSMutableAttributedString(string: " "))
+            attributedString.append(secondName.bold)
+        }
+        self.label.attributedText = attributedString
+        userPicView.layer.backgroundColor = color ?? UIColor.yellow.cgColor
+        abbreviationLabel.isHidden = picture != nil
+        photo.isHidden = picture == nil
+        abbreviationLabel.text = picture == nil ? label.acronym : nil
+        photo.image = picture ?? nil
     }
     
     

@@ -10,12 +10,12 @@ import UIKit
 struct Group {
     let title: String
     let groupPicture: UIImage?
-    let colorCode: CGColor
+    let codeColor: CGColor
     
     init(title: String, image: UIImage?) {
         self.title = title
         self.groupPicture = image ?? nil
-        colorCode = CGColor(red: CGFloat.random(in: 155...255)/255,
+        codeColor = CGColor(red: CGFloat.random(in: 155...255)/255,
                         green: CGFloat.random(in: 155...255)/255,
                         blue: CGFloat.random(in: 155...255)/255,
                         alpha: 1.0)

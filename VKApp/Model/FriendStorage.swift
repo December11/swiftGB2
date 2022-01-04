@@ -32,15 +32,38 @@ final class FriendStorage {
         Friend(firstName: "Danila",
                secondName: "Kovchiy",
                userPhoto: Photo(image: UIImage(named: "photo7.png"))),
-        Friend(firstName: "Alex",
-               secondName: "La Cruse",
+        Friend(firstName: "Booker",
+               secondName: "De Witt",
+               userPhoto: nil),
+        Friend(firstName: "Daizy",
+               secondName: "Fitzroy",
+               userPhoto: nil),
+        Friend(firstName: " Rosalind",
+               secondName: "Lutece",
+               userPhoto: nil),
+        Friend(firstName: "Robert",
+               secondName: "Lutece",
+               userPhoto: nil),
+        Friend(firstName: "Zachary",
+               secondName: "Hale Comstock",
+               userPhoto: nil),
+        Friend(firstName: "Elizabeth",
+               secondName: "",
+               userPhoto: nil),
+        Friend(firstName: "Jeremiah",
+               secondName: "Fink",
+               userPhoto: nil),
+        Friend(firstName: "Cornelius",
+               secondName: "Slate",
                userPhoto: nil)
     ]
     
      func getIndexes() -> [String: [Friend]] {
          var dictionary = [String: [Friend]]()
-         for person in FriendStorage.shared.friends {
-             let key = String(person.secondName.prefix(1))
+         for friend in FriendStorage.shared.friends {
+             let key = friend.secondName == ""
+             ?  String(friend.firstName.prefix(1))
+             :  String(friend.secondName.prefix(1))
              if !dictionary.keys.contains(key) {
                  let array = getArrayForKey(for: key)
                  dictionary.updateValue(array, forKey: key)
@@ -52,7 +75,10 @@ final class FriendStorage {
     func getArrayForKey(for key: String ) -> [Friend] {
         var array = [Friend]()
         for friend in FriendStorage.shared.friends {
-            if String(friend.secondName.prefix(1)) == key {
+            let keyValue = friend.secondName == ""
+            ?  String(friend.firstName.prefix(1))
+            :  String(friend.secondName.prefix(1))
+            if keyValue == key {
                 array.append(friend)
             }
         }
@@ -63,15 +89,6 @@ final class FriendStorage {
         let array = [String](getIndexes().keys)
         return array.sorted()
     }
-    
-//    func removeDublicates(in array: [Friend]) -> [Friend] {
-//        var result = [Friend]()
-//        result.append(array[0])
-//        for friend in friends {
-//            if
-//        }
-//    }
-    
 }
 
 

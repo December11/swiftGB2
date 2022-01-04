@@ -14,7 +14,7 @@ final class Friend {
         firstName + " " + secondName
     }
     var userPhoto: Photo?
-    let colorCode: CGColor
+    let codeColor: CGColor
     var photos = [Photo]() //в виде массива на будущее. Все фотки пользователя, могут быть показаны на экране фото
     
     init(firstName: String, secondName: String, userPhoto: Photo?) {
@@ -23,7 +23,7 @@ final class Friend {
         self.userPhoto = userPhoto ?? nil
         
         if self.userPhoto != nil { photos.append(userPhoto!) }
-        colorCode = CGColor(red: CGFloat.random(in: 155...255)/255,
+        codeColor = CGColor(red: CGFloat.random(in: 155...255)/255,
                         green: CGFloat.random(in: 155...255)/255,
                         blue: CGFloat.random(in: 155...255)/255,
                         alpha: 1.0)

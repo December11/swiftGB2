@@ -80,12 +80,11 @@ class FriendsTableViewController: UITableViewController {
             FriendStorage.shared.getArrayForKey(for: currentKeyArray)
         let currentFriend = friendsForCurrentKeyArray[indexPath.row]
         
-        // проверяем что у друга вообще есть фото, если нету, то делаем фон и инициалы
-        currentFriend.userPhoto != nil
-        ? cell.configureCell(
-            userPic: currentFriend.userPhoto?.img,
-            label: currentFriend.userName)
-        : cell.configureCell(label: currentFriend.userName, color: currentFriend.colorCode)
+        cell.configureCell(
+            label: currentFriend.firstName,
+            additionalLabel: currentFriend.secondName,
+            picture: currentFriend.userPhoto?.img,
+            color: currentFriend.codeColor)
         return cell
     }
     
