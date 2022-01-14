@@ -34,7 +34,6 @@ class GroupsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -55,10 +54,7 @@ class GroupsTableViewController: UITableViewController {
         else { return UITableViewCell() }
             
         let currentGroup = groups[indexPath.row]
-            
-        cell.configureCell(
-            userPic: currentGroup.groupPicture,
-            label: currentGroup.title)
+            cell.configureCell(label: currentGroup.title, additionalLabel: nil, picture: currentGroup.groupPicture, color: currentGroup.codeColor)
 
         return cell
     }

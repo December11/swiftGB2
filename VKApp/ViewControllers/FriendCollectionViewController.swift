@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PhotosCollectionViewController: UICollectionViewController {
+class FriendCollectionViewController: UICollectionViewController {
     
-    var image: UIImage?
+    var friend: Friend?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return friend?.photos.count ?? 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -29,8 +29,9 @@ class PhotosCollectionViewController: UICollectionViewController {
                 for: indexPath)
                 as? ImageCollectionCell
         else { return UICollectionViewCell() }
-        cell.configureItem(image: image ?? UIImage(named: "photo7.png"))
+        cell.configureItem(picture: friend?.photos[indexPath.row])
         return cell
     }
 
 }
+

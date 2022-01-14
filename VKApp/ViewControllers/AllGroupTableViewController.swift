@@ -8,15 +8,9 @@
 import UIKit
 
 class AllGroupTableViewController: UITableViewController {
-    
-    var groups = [
-        Group(title: "Swift developers", image: UIImage(
-            named: "groupPhoto2.jpg")),
-        Group(title: "Apple insider", image: nil),
-        Group(title: "wathcing WWDC together'22", image: nil),
-        Group(title: "Freelance office jobs for Swift developers",
-              image: UIImage(named: "groupPhoto1.jpg"))]
 
+    let groups = GroupStorage.shared.groups
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +20,6 @@ class AllGroupTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -47,11 +40,8 @@ class AllGroupTableViewController: UITableViewController {
         else { return UITableViewCell() }
             
         let currentGroup = groups[indexPath.row]
+            cell.configureCell(label: currentGroup.title, additionalLabel: nil, picture: currentGroup.groupPicture, color: currentGroup.codeColor)
             
-        cell.configureCell(
-            userPic: currentGroup.groupPicture,
-            label: currentGroup.title)
-
         return cell
     }
 

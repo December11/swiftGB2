@@ -9,39 +9,26 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
     
-    var friends = [
-        Friend(firstName: "Anna",
-               secondName: "Mitchel",
-               userPhoto: UIImage(named: "photo1.png")),
-        Friend(firstName: "Gregory",
-               secondName: "Lass",
-               userPhoto: UIImage(named: "photo2.png")),
-        Friend(firstName: "Kate",
-               secondName: "Bolac",
-               userPhoto: UIImage(named: "photo3.png")),
-        Friend(firstName: "Alice",
-               secondName: "Morgan",
-               userPhoto: UIImage(named: "photo4.png")),
-        Friend(firstName: "Peter",
-               secondName: "Bosko",
-               userPhoto: UIImage(named: "photo5.png")),
-        Friend(firstName: "Ann",
-               secondName: "Wood",
-               userPhoto: UIImage(named: "photo6.png")),
-        Friend(firstName: "Danila",
-               secondName: "Kovchiy",
-               userPhoto: UIImage(named: "photo7.png"))
-    ]
+    // MARK: - Переменные
+    let friends = FriendStorage.shared.friends
+    let friendsDictionary = FriendStorage.shared.getIndexes()
+    let friendsDictionaryKeysArray = FriendStorage.shared.getSortedKeyArray()
     
+    // MARK: - Данные для экрана Фото
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPhotos" {
             guard
                 let photosController = segue.destination
-                    as? PhotosCollectionViewController,
+                    as? FriendCollectionViewController,
                 let indexPath = sender as? IndexPath
             else { return }
-            photosController.image = self.friends[indexPath.row].userPhoto
-                    
+            
+            let currentSectionNumber = indexPath.section
+            let currentKeyArray = friendsDictionaryKeysArray[currentSectionNumber]
+            let friendsForCurrentKeyArray =
+                FriendStorage.shared.getArrayForKey(for: currentKeyArray)
+            let currentFriend = friendsForCurrentKeyArray[indexPath.row]
+            photosController.friend = currentFriend
         }
     }
 
@@ -52,45 +39,61 @@ class FriendsTableViewController: UITableViewController {
         tableView.register(
             UINib(nibName: "ImageCell", bundle: nil),
             forCellReuseIdentifier: "imageCell")
-        
     }
     
     @IBAction func dismiss() {
         dismiss(animated: true)
     }
 
-    // MARK: - Table view data source
+    // MARK: - Секции и вывод строк
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return friendsDictionaryKeysArray.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+        let array = friendsDictionaryKeysArray
+        return FriendStorage.shared.getArrayForKey(for: array[section]).count
     }
-
+    
+    override func tableView(
+        _ tableView: UITableView,
+        titleForHeaderInSection section: Int)
+    -> String? {
+        return friendsDictionaryKeysArray[section]
+    }
+    
     override func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell {
+    -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: "imageCell",
                 for: indexPath)
                 as? ImageCell
         else { return UITableViewCell() }
-            
-        let currentFriend = friends[indexPath.row]
-            
+        
+        // все чтобы получить нужного друга в нужной секции
+        let currentSectionNumber = indexPath.section
+        let currentKeyArray = friendsDictionaryKeysArray[currentSectionNumber]
+        let friendsForCurrentKeyArray =
+            FriendStorage.shared.getArrayForKey(for: currentKeyArray)
+        let currentFriend = friendsForCurrentKeyArray[indexPath.row]
+        
         cell.configureCell(
-            userPic: currentFriend.userPhoto,
-            label: currentFriend.userName)
-
+            label: currentFriend.firstName,
+            additionalLabel: currentFriend.secondName,
+            picture: currentFriend.userPhoto?.img,
+            color: currentFriend.codeColor)
         return cell
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return friendsDictionaryKeysArray
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         defer { tableView .deselectRow(at: indexPath, animated: true) }
         performSegue(withIdentifier: "showPhotos", sender: indexPath)
     }
-
 }
