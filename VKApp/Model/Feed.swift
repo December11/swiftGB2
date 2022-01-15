@@ -14,7 +14,15 @@ final class Feed {
     var messageText: String?
     var image: Photo?
     
-    var isLike = false
+    var isLiked = false {
+        didSet {
+            if isLiked {
+                likesCount += 1
+            } else {
+                likesCount -= 1
+            }
+        }
+    }
     var likesCount = 0
     
     var commentsCount = 0

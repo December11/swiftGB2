@@ -15,6 +15,10 @@ final class FeedCell: UITableViewCell {
     @IBOutlet weak var acronym: UILabel!
     @IBOutlet weak var feedMessage: UILabel!
     @IBOutlet weak var feedImage: UIImageView!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var replyButton: UIButton!
+    
+    var feed: Feed?
     
     func configureFeedCell(feed: Feed) {
         self.userName.text = feed.user.userName
@@ -28,10 +32,20 @@ final class FeedCell: UITableViewCell {
         self.feedMessage.text = feed.messageText
         self.feedImage.isHidden = feed.image == nil
         self.feedImage.image = feed.image?.img ?? nil
+        self.feed = feed
         
     }
     
-    //user interaction был выключен, чтобы не было возможности нажимать на ячейку.
-    // ..А как бы сделать это по нормальному??
+    @IBAction func like(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        feed?.isLiked.toggle()
+        let count = feed?.likesCount ?? 0
+        sender.setTitle(String(count), for: .init())
+        let imageTitle = sender.isSelected ? "hand.thumbsup.circle.fill" : "hand.thumbsup.circle"
+        sender.setImage(UIImage(systemName: imageTitle), for: .init())
+        
+    }
+    
+    
     
 }

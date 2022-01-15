@@ -334,12 +334,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D0I-Al-am9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D0I-Al-am9">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="586" id="QQ7-Vd-BNo" customClass="FeedCell" customModule="VKApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="586" id="QQ7-Vd-BNo" customClass="FeedCell" customModule="VKApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="586"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QQ7-Vd-BNo" id="ZvR-Ec-jn1">
@@ -414,7 +414,7 @@
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="qVf-TQ-cSr" firstAttribute="leading" secondItem="ymh-e5-Nse" secondAttribute="leading" id="3Hk-Xz-fNb"/>
                                                         <constraint firstAttribute="bottom" secondItem="mKL-ka-jw2" secondAttribute="bottom" constant="4" id="C67-XK-Kjs"/>
@@ -451,35 +451,52 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-HK-OwV">
                                                     <rect key="frame" x="16" y="538" width="382" height="32"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8FK-MX-ooA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="57" height="32"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8FK-MX-ooA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="32"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="hUH-dZ-SEN"/>
+                                                            </constraints>
+                                                            <color key="tintColor" name="AccentColor"/>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup.circle" catalog="system" title="0" imagePadding="4"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup.circle" catalog="system" title="0" imagePadding="4" titleAlignment="leading">
+                                                                <backgroundConfiguration key="background">
+                                                                    <color key="backgroundColor" name="background"/>
+                                                                </backgroundConfiguration>
+                                                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                                            </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="like:" destination="QQ7-Vd-BNo" eventType="touchUpInside" id="18S-4L-mFH"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egB-gG-FrD">
-                                                            <rect key="frame" x="78" y="0.0" width="59" height="32"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egB-gG-FrD">
+                                                            <rect key="frame" x="61" y="0.0" width="55" height="32"/>
+                                                            <color key="tintColor" name="AccentColor"/>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="message" catalog="system" title="0" imagePadding="4"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="0" imagePadding="4">
+                                                                <imageReference key="image" image="message" catalog="system" symbolScale="default"/>
+                                                            </buttonConfiguration>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdh-yK-5TZ">
-                                                            <rect key="frame" x="158" y="0.0" width="45.5" height="32"/>
+                                                            <rect key="frame" x="137" y="0.0" width="41.5" height="32"/>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.forward" catalog="system" imagePadding="4"/>
+                                                            <buttonConfiguration key="configuration" style="plain" imagePadding="4">
+                                                                <imageReference key="image" image="arrowshape.turn.up.forward" catalog="system" symbolScale="default"/>
+                                                            </buttonConfiguration>
                                                         </button>
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="100" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Heh-Yw-oje">
-                                                            <rect key="frame" x="224.5" y="0.0" width="50" height="32"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <rect key="frame" x="199.5" y="0.0" width="118.5" height="32"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hlq-Z4-jsj">
-                                                            <rect key="frame" x="295.5" y="0.0" width="86.5" height="32"/>
+                                                            <rect key="frame" x="339" y="0.0" width="43" height="32"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="250" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wR-aU-KJQ">
-                                                                    <rect key="frame" x="28" y="0.0" width="58.5" height="32"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="249" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wR-aU-KJQ">
+                                                                    <rect key="frame" x="28" y="0.0" width="15" height="32"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="32" id="tWC-vD-RYD"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" name="secondaryText"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jhH-Eq-tcU">
@@ -492,7 +509,7 @@
                                                                     <imageReference key="image" image="eye" catalog="system" symbolScale="default"/>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="jhH-Eq-tcU" firstAttribute="centerY" secondItem="Hlq-Z4-jsj" secondAttribute="centerY" id="KJn-dO-QRo"/>
                                                                 <constraint firstItem="3wR-aU-KJQ" firstAttribute="top" secondItem="Hlq-Z4-jsj" secondAttribute="top" id="cVf-op-zts"/>
@@ -526,6 +543,8 @@
                                             <outlet property="feedCreationDate" destination="vLK-VT-4XK" id="DvL-2D-lQd"/>
                                             <outlet property="feedImage" destination="G12-XM-6xy" id="8oA-T4-vxG"/>
                                             <outlet property="feedMessage" destination="rkn-Ag-1RK" id="cLy-Vo-h2q"/>
+                                            <outlet property="likeButton" destination="8FK-MX-ooA" id="azS-yP-Xk2"/>
+                                            <outlet property="replyButton" destination="egB-gG-FrD" id="cSs-vU-Zpq"/>
                                             <outlet property="userName" destination="FXQ-VA-Axk" id="uzA-9l-YSJ"/>
                                             <outlet property="userPhoto" destination="h8Y-dw-T9a" id="C8G-MD-4gM"/>
                                             <outlet property="userPhotoBackground" destination="qVf-TQ-cSr" id="Mqn-kG-2tC"/>
@@ -609,6 +628,9 @@
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
+        <namedColor name="AccentColor">
+            <color red="0.20999999344348907" green="0.53899997472763062" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="accent">
             <color red="0.20999999344348907" green="0.53899997472763062" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

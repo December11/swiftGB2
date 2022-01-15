@@ -24,13 +24,13 @@ class ImageCollectionCell: UICollectionViewCell {
     @IBAction func likeButtonPressed (_ sender: UIButton) {
         sender.isSelected.toggle()
         sender.backgroundColor = .white
-        photo?.isLike = sender.isSelected
+        photo?.isLiked = sender.isSelected
     }
     
     func configureItem(picture: Photo?) {
         self.photo = picture
         self.photoImageView.image = picture?.img ?? nil 
-        likeButton.isSelected = picture?.isLike ?? false
+        likeButton.isSelected = picture?.isLiked ?? false
         
     }
 }

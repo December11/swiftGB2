@@ -32,9 +32,6 @@ final class FeedViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        defer { tableView.deselectRow(
-//            at: indexPath,
-//            animated: false) }
         tableView.deselectRow(at: indexPath, animated: false)
     }
 }
