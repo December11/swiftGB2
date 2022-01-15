@@ -435,18 +435,51 @@
                                                             <color key="textColor" name="mainText"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="240" verticalHuggingPriority="240" translatesAutoresizingMaskIntoConstraints="NO" id="G12-XM-6xy">
+                                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="1LI-Wz-28g">
                                                             <rect key="frame" x="0.0" y="60" width="382" height="382"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFX-7G-mKo">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="382"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="240" verticalHuggingPriority="240" translatesAutoresizingMaskIntoConstraints="NO" id="G12-XM-6xy">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="382"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="G12-XM-6xy" secondAttribute="height" id="HD1-bj-SGj"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                    <real key="value" value="8"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="G12-XM-6xy" firstAttribute="top" secondItem="DFX-7G-mKo" secondAttribute="top" id="Bnw-lp-KPB"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="G12-XM-6xy" secondAttribute="bottom" id="jWZ-Ti-GVx"/>
+                                                                        <constraint firstItem="G12-XM-6xy" firstAttribute="leading" secondItem="DFX-7G-mKo" secondAttribute="leading" id="yAB-vO-aX7"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="G12-XM-6xy" secondAttribute="trailing" id="z1Z-5v-INX"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" systemColor="systemRedColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="G12-XM-6xy" secondAttribute="height" id="GkH-bZ-S8A"/>
+                                                                <constraint firstAttribute="trailing" secondItem="DFX-7G-mKo" secondAttribute="trailing" id="KVb-Jz-rUW"/>
+                                                                <constraint firstItem="DFX-7G-mKo" firstAttribute="leading" secondItem="1LI-Wz-28g" secondAttribute="leading" id="XqW-KT-WNT"/>
+                                                                <constraint firstItem="DFX-7G-mKo" firstAttribute="top" secondItem="1LI-Wz-28g" secondAttribute="top" id="fOp-Cf-SCM"/>
+                                                                <constraint firstItem="DFX-7G-mKo" firstAttribute="centerY" secondItem="1LI-Wz-28g" secondAttribute="centerY" id="n76-Vw-idZ"/>
+                                                                <constraint firstItem="DFX-7G-mKo" firstAttribute="centerY" secondItem="1LI-Wz-28g" secondAttribute="centerY" id="pgl-Mc-iEi"/>
+                                                                <constraint firstItem="DFX-7G-mKo" firstAttribute="centerX" secondItem="1LI-Wz-28g" secondAttribute="centerX" id="tg6-dU-1QY"/>
+                                                                <constraint firstAttribute="bottom" secondItem="DFX-7G-mKo" secondAttribute="bottom" id="whH-5O-rQM"/>
                                                             </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="8"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
+                                                        </scrollView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="1LI-Wz-28g" firstAttribute="leading" secondItem="eoI-sk-HUj" secondAttribute="leading" id="ed8-Rf-122"/>
+                                                        <constraint firstAttribute="bottom" secondItem="1LI-Wz-28g" secondAttribute="bottom" id="nqi-VE-hHT"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1LI-Wz-28g" secondAttribute="trailing" id="tiP-RF-vSl"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-HK-OwV">
                                                     <rect key="frame" x="16" y="538" width="382" height="32"/>
@@ -543,6 +576,7 @@
                                             <outlet property="feedCreationDate" destination="vLK-VT-4XK" id="DvL-2D-lQd"/>
                                             <outlet property="feedImage" destination="G12-XM-6xy" id="8oA-T4-vxG"/>
                                             <outlet property="feedMessage" destination="rkn-Ag-1RK" id="cLy-Vo-h2q"/>
+                                            <outlet property="imgScrollView" destination="1LI-Wz-28g" id="Tlq-Uz-U4k"/>
                                             <outlet property="likeButton" destination="8FK-MX-ooA" id="azS-yP-Xk2"/>
                                             <outlet property="replyButton" destination="egB-gG-FrD" id="cSs-vU-Zpq"/>
                                             <outlet property="userName" destination="FXQ-VA-Axk" id="uzA-9l-YSJ"/>
@@ -651,6 +685,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
