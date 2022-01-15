@@ -30,10 +30,11 @@ class ImageCell: UITableViewCell {
         userPicView.layer.backgroundColor = color ?? UIColor.yellow.cgColor
         abbreviationLabel.isHidden = picture != nil
         photo.isHidden = picture == nil
-        abbreviationLabel.text = picture == nil ? label.acronym : nil
+            
+        let name = additionalLabel == nil ? label : label + " " + additionalLabel!
+        abbreviationLabel.text = picture == nil ? name.acronym : nil
         photo.image = picture ?? nil
     }
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

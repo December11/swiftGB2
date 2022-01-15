@@ -10,9 +10,15 @@ import UIKit
 class FriendsTableViewController: UITableViewController {
     
     // MARK: - Переменные
-    let friends = FriendStorage.shared.friends
+    //let friends = FriendStorage.shared.friends
+    //var filteredFriends = FriendStorage.shared.friends
     let friendsDictionary = FriendStorage.shared.getIndexes()
     let friendsDictionaryKeysArray = FriendStorage.shared.getSortedKeyArray()
+    
+    // для поиска
+   // var filteredFriendsDictionaryKeys = FriendStorage.shared.getSortedKeyArray()
+    //var filteredFriendsDictionary = FriendStorage.shared.getIndexes()
+    
     
     // MARK: - Данные для экрана Фото
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,4 +102,5 @@ class FriendsTableViewController: UITableViewController {
         defer { tableView .deselectRow(at: indexPath, animated: true) }
         performSegue(withIdentifier: "showPhotos", sender: indexPath)
     }
+    
 }

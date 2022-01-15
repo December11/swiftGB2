@@ -9,11 +9,15 @@ import UIKit
 
 class AllGroupTableViewController: UITableViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     let groups = GroupStorage.shared.groups
+    var filteredGroups = GroupStorage.shared.groups
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        searchBar.delegate = self
+        searchBar.placeholder = "Search some group"
         tableView.register(
             UINib(nibName: "ImageCell", bundle: nil),
             forCellReuseIdentifier: "imageCell")
@@ -25,7 +29,7 @@ class AllGroupTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groups.count
+        return filteredGroups.count
     }
 
     override func tableView(
@@ -39,7 +43,7 @@ class AllGroupTableViewController: UITableViewController {
                 as? ImageCell
         else { return UITableViewCell() }
             
-        let currentGroup = groups[indexPath.row]
+        let currentGroup = filteredGroups[indexPath.row]
             cell.configureCell(label: currentGroup.title, additionalLabel: nil, picture: currentGroup.groupPicture, color: currentGroup.codeColor)
             
         return cell

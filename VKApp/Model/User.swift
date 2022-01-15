@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Friend {
+final class User {
     let firstName: String
     let secondName: String
     var userName: String {

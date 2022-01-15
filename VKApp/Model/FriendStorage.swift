@@ -11,55 +11,55 @@ final class FriendStorage {
     static let shared = FriendStorage()
     
     let friends = [
-        Friend(firstName: "Anna",
+        User(firstName: "Anna",
                secondName: "Mitchel",
                userPhoto: Photo(image: UIImage(named: "photo1.png"))),
-        Friend(firstName: "Gregory",
+        User(firstName: "Gregory",
                secondName: "Lass",
                userPhoto: Photo(image: UIImage(named: "photo2.png"))),
-        Friend(firstName: "Kate",
+        User(firstName: "Kate",
                secondName: "Bolac",
                userPhoto: Photo(image: UIImage(named: "photo3.png"))),
-        Friend(firstName: "Alice",
+        User(firstName: "Alice",
                secondName: "Morgan",
                userPhoto: Photo(image: UIImage(named: "photo4.png"))),
-        Friend(firstName: "Peter",
+        User(firstName: "Peter",
                secondName: "Bosko",
                userPhoto: Photo(image: UIImage(named: "photo5.png"))),
-        Friend(firstName: "Ann",
+        User(firstName: "Ann",
                secondName: "Wood",
                userPhoto: nil),
-        Friend(firstName: "Danila",
+        User(firstName: "Danila",
                secondName: "Kovchiy",
                userPhoto: Photo(image: UIImage(named: "photo7.png"))),
-        Friend(firstName: "Booker",
+        User(firstName: "Booker",
                secondName: "De Witt",
                userPhoto: nil),
-        Friend(firstName: "Daizy",
+        User(firstName: "Daizy",
                secondName: "Fitzroy",
                userPhoto: nil),
-        Friend(firstName: " Rosalind",
+        User(firstName: " Rosalind",
                secondName: "Lutece",
                userPhoto: nil),
-        Friend(firstName: "Robert",
+        User(firstName: "Robert",
                secondName: "Lutece",
                userPhoto: nil),
-        Friend(firstName: "Zachary",
+        User(firstName: "Zachary",
                secondName: "Hale Comstock",
                userPhoto: nil),
-        Friend(firstName: "Elizabeth",
+        User(firstName: "Elizabeth",
                secondName: "",
                userPhoto: nil),
-        Friend(firstName: "Jeremiah",
+        User(firstName: "Jeremiah",
                secondName: "Fink",
                userPhoto: nil),
-        Friend(firstName: "Cornelius",
+        User(firstName: "Cornelius",
                secondName: "Slate",
                userPhoto: nil)
     ]
     
-     func getIndexes() -> [String: [Friend]] {
-         var dictionary = [String: [Friend]]()
+     func getIndexes() -> [String: [User]] {
+         var dictionary = [String: [User]]()
          for friend in FriendStorage.shared.friends {
              let key = friend.secondName == ""
              ?  String(friend.firstName.prefix(1))
@@ -72,8 +72,8 @@ final class FriendStorage {
         return dictionary
     }
     
-    func getArrayForKey(for key: String ) -> [Friend] {
-        var array = [Friend]()
+    func getArrayForKey(for key: String ) -> [User] {
+        var array = [User]()
         for friend in FriendStorage.shared.friends {
             let keyValue = friend.secondName == ""
             ?  String(friend.firstName.prefix(1))
