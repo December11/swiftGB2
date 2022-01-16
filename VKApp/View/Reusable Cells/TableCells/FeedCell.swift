@@ -18,11 +18,13 @@ final class FeedCell: UITableViewCell {
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var imgScrollView: UIScrollView!
     @IBOutlet weak var imgView: UIView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     var feedImageViews = [UIImageView]()
     var feed: Feed?
     
     func configureFeedCell(feed: Feed) {
+        self.feed = feed
         self.userName.text = feed.user.userName
         feedCreationDate.text = feed.date.toString(dateFormat: .dateTime)
         userPhotoBackground.backgroundColor = UIColor(cgColor: feed.user.codeColor)
@@ -37,6 +39,7 @@ final class FeedCell: UITableViewCell {
         acronym.text = feed.user.userName.acronym
         feedMessage.text = feed.messageText
         
+        // определяем ширину для скроллвью
         imgScrollView.contentSize = CGSize(width: (UIScreen.main.bounds.width - 32) * CGFloat(feed.images.count),
                                           height: UIScreen.main.bounds.width - 32)
         
@@ -50,15 +53,23 @@ final class FeedCell: UITableViewCell {
             imgScrollView.cornerRadius = 8
             imgScrollView.addSubview(feedImageViews[i])
         }
+        pageControl.numberOfPages = feed.images.count
     }
     
     @IBAction func like(_ sender: UIButton) {
         sender.isSelected.toggle()
         feed?.isLiked.toggle()
+        
         let count = feed?.likesCount ?? 0
         sender.setTitle(String(count), for: .init())
         let imageTitle = sender.isSelected ? "hand.thumbsup.circle.fill" : "hand.thumbsup.circle"
         sender.setImage(UIImage(systemName: imageTitle), for: .init())
     }
-    
+}
+
+extension FeedCell: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let page = floor(scrollView.contentOffset.x / scrollView.bounds.width)
+        pageControl.currentPage = Int(page)
+    }
 }

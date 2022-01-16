@@ -430,18 +430,27 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfV-MG-jby">
                                                             <rect key="frame" x="0.0" y="60" width="382" height="382"/>
                                                             <subviews>
-                                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="1LI-Wz-28g">
+                                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1LI-Wz-28g">
                                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="382"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <color key="tintColor" systemColor="systemRedColor"/>
+                                                                    <connections>
+                                                                        <outlet property="delegate" destination="QQ7-Vd-BNo" id="wtG-bV-TJm"/>
+                                                                    </connections>
                                                                 </scrollView>
+                                                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xY6-TZ-kAB">
+                                                                    <rect key="frame" x="0.0" y="356" width="382" height="26"/>
+                                                                </pageControl>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="1LI-Wz-28g" firstAttribute="top" secondItem="mfV-MG-jby" secondAttribute="top" id="6iH-6S-ALc"/>
+                                                                <constraint firstItem="xY6-TZ-kAB" firstAttribute="leading" secondItem="mfV-MG-jby" secondAttribute="leading" id="6qU-Mb-PoI"/>
                                                                 <constraint firstAttribute="width" secondItem="mfV-MG-jby" secondAttribute="height" multiplier="1:1" id="8cT-f8-Hcw"/>
+                                                                <constraint firstAttribute="trailing" secondItem="xY6-TZ-kAB" secondAttribute="trailing" id="JaK-MN-N1X"/>
                                                                 <constraint firstAttribute="trailing" secondItem="1LI-Wz-28g" secondAttribute="trailing" id="NPc-Te-zJq"/>
                                                                 <constraint firstItem="1LI-Wz-28g" firstAttribute="leading" secondItem="mfV-MG-jby" secondAttribute="leading" id="fgw-Lj-Abo"/>
                                                                 <constraint firstAttribute="bottom" secondItem="1LI-Wz-28g" secondAttribute="bottom" id="onF-aa-eDV"/>
+                                                                <constraint firstAttribute="bottom" secondItem="xY6-TZ-kAB" secondAttribute="bottom" id="vSL-e1-2jn"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -555,6 +564,7 @@
                                             <outlet property="imgScrollView" destination="1LI-Wz-28g" id="Tlq-Uz-U4k"/>
                                             <outlet property="imgView" destination="mfV-MG-jby" id="1Tq-kl-1Rr"/>
                                             <outlet property="likeButton" destination="8FK-MX-ooA" id="azS-yP-Xk2"/>
+                                            <outlet property="pageControl" destination="xY6-TZ-kAB" id="sRB-Tb-ob9"/>
                                             <outlet property="replyButton" destination="egB-gG-FrD" id="cSs-vU-Zpq"/>
                                             <outlet property="userName" destination="FXQ-VA-Axk" id="uzA-9l-YSJ"/>
                                             <outlet property="userPhoto" destination="h8Y-dw-T9a" id="C8G-MD-4gM"/>
