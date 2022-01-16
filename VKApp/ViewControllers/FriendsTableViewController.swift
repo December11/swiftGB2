@@ -89,7 +89,7 @@ class FriendsTableViewController: UITableViewController {
         cell.configureCell(
             label: currentFriend.firstName,
             additionalLabel: currentFriend.secondName,
-            picture: currentFriend.userPhoto?.img,
+            picture: currentFriend.userPhoto?.image,
             color: currentFriend.codeColor)
         return cell
     }

@@ -29,7 +29,7 @@ class ImageCollectionCell: UICollectionViewCell {
     
     func configureItem(picture: Photo?) {
         self.photo = picture
-        self.photoImageView.image = picture?.img ?? nil 
+        self.photoImageView.image = picture?.image ?? nil 
         likeButton.isSelected = picture?.isLiked ?? false
         
     }

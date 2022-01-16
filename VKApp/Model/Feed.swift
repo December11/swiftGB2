@@ -12,7 +12,7 @@ final class Feed {
     let user: User
     
     var messageText: String?
-    var image: Photo?
+    var images = [Photo]()
     
     var isLiked = false {
         didSet {
@@ -28,14 +28,13 @@ final class Feed {
     var commentsCount = 0
     var viewsCount = 0
     
-    init(user: User, messageText: String?, image: Photo?) {
+    init(user: User, messageText: String?, image: [Photo]?) {
         self.user = user
         self.messageText = messageText
-        self.image = image
-        
+        if let photos = image {
+            self.images = photos
+        }
         // для проверки работы сортировки по дате
         self.date = Date() - TimeInterval.random(in: 0...3600)
     }
-    
-    
 }
