@@ -8,10 +8,10 @@
 import UIKit
 
 final class Photo {
-    let img: UIImage?
-    var isLike: Bool = false
+    let image: UIImage?
+    var isLiked: Bool = false
     
     init(image: UIImage?) {
-        self.img = image ?? nil
+        self.image = image ?? nil
     }
 }

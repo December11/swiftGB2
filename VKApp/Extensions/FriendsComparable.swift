@@ -7,12 +7,12 @@
 
 import Foundation
 
-extension Friend: Comparable {
-    static func < (lhs: Friend, rhs: Friend) -> Bool {
+extension User: Comparable {
+    static func < (lhs: User, rhs: User) -> Bool {
         lhs.secondName < rhs.secondName
     }
     
-    static func == (lhs: Friend, rhs: Friend) -> Bool {
+    static func == (lhs: User, rhs: User) -> Bool {
         lhs.userName == rhs.userName
     }
 }
