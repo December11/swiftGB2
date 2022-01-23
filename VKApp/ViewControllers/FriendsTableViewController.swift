@@ -61,17 +61,11 @@ class FriendsTableViewController: UITableViewController {
         return FriendStorage.shared.getArrayForKey(for: array[section]).count
     }
     
-    override func tableView(
-        _ tableView: UITableView,
-        titleForHeaderInSection section: Int)
-    -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return friendsDictionaryKeysArray[section]
     }
     
-    override func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath)
-    -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: "imageCell",
@@ -99,8 +93,11 @@ class FriendsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         defer { tableView .deselectRow(at: indexPath, animated: true) }
         performSegue(withIdentifier: "showPhotos", sender: indexPath)
     }
+    
+    
     
 }

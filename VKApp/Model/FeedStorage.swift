@@ -9,7 +9,8 @@ import UIKit
 
 final class FeedStorage {
     static let shared = FeedStorage()
-    
+//    var feedNews = [Feed]()
+
     var feedNews = [
         Feed(user: FriendStorage.shared.friends[7],
              messageText: "Some message",
