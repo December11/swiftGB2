@@ -71,7 +71,6 @@ final class FeedCell: UITableViewCell {
                 self.userPhotoBackground.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             }
         }
-
     }
     
     @IBAction func like(_ sender: UIButton) {
@@ -81,8 +80,6 @@ final class FeedCell: UITableViewCell {
         let count = feed?.likesCount ?? 0
         sender.setTitle(String(count), for: .init())
         likeAnimate()
-//        let imageTitle = sender.isSelected ? "hand.thumbsup.circle.fill" : "hand.thumbsup.circle"
-//        sender.setImage(UIImage(systemName: imageTitle), for: .init())
     }
     
     func likeAnimate() {
@@ -107,19 +104,7 @@ final class FeedCell: UITableViewCell {
             print("tapped on image")
         }
     }
-    
-//    func likeDamplingAnimate() {
-//        UIView.animate(withDuration: 2.0, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut) {
-//            likeButton.imageView?.frame.origin.y += 4
-//        } completion: { <#Bool#> in
-//            <#code#>
-//        }
-//
-//    }
 }
-
-
-
 
 extension FeedCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
