@@ -7,13 +7,10 @@
 
 import UIKit
 
-class ImageCollectionCell: UICollectionViewCell {
+class FriendPhotosCollectionCell: UICollectionViewCell {
 
     @IBOutlet var photoImageView: UIImageView!
-    //@IBOutlet var likeButton: UIButton!
-    @IBOutlet weak var imageCollectionView: UIView!
-    
-    @IBOutlet weak var photoWidthConstraint: NSLayoutConstraint!
+   // @IBOutlet var likeButton: UIButton!
     
     var photo: Photo?
     
@@ -23,7 +20,7 @@ class ImageCollectionCell: UICollectionViewCell {
 //        likeButton.setTitle("1", for: .selected)
 //        likeButton.setImage(UIImage(systemName: "hand.thumbsup.circle.fill"), for: .selected)
 //    }
-//
+    
 //    @IBAction func likeButtonPressed (_ sender: UIButton) {
 //        sender.isSelected.toggle()
 //        sender.backgroundColor = .white
@@ -33,7 +30,9 @@ class ImageCollectionCell: UICollectionViewCell {
     func configureItem(picture: Photo?) {
         self.photo = picture
         self.photoImageView.image = picture?.image ?? nil
-        self.photoWidthConstraint.constant = UIScreen.main.bounds.width / 3 - 2
-        //likeButton.isSelected = picture?.isLiked ?? false
+        self.photoImageView.frame.size = CGSize(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 2)
+        
+       // likeButton.isSelected = picture?.isLiked ?? false
+        
     }
 }

@@ -12,62 +12,107 @@ final class FriendStorage {
     
     let friends = [
         User(firstName: "Anna",
-               secondName: "Mitchel",
-               userPhoto: Photo(image: UIImage(named: "photo1.png"))),
+             secondName: "Mitchel",
+             userPhoto: Photo(image: UIImage(named: "photo1.png")),
+             photos: [
+                Photo(image: UIImage(named: "photo1.png")),
+                Photo(image: UIImage(named: "photo2.png")),
+                Photo(image: UIImage(named: "photo3.png")),
+                Photo(image: UIImage(named: "photo4.png"))
+             ]),
         User(firstName: "Gregory",
-               secondName: "Lass",
-               userPhoto: Photo(image: UIImage(named: "photo2.png"))),
+             secondName: "Lass",
+             userPhoto: Photo(image: UIImage(named: "photo2.png")),
+             photos: [
+                Photo(image: UIImage(named: "photo1.png")),
+                Photo(image: UIImage(named: "photo2.png")),
+                Photo(image: UIImage(named: "photo3.png")),
+                Photo(image: UIImage(named: "photo4.png"))
+             ]),
         User(firstName: "Kate",
-               secondName: "Bolac",
-               userPhoto: Photo(image: UIImage(named: "photo3.png"))),
+             secondName: "Bolac",
+             userPhoto: Photo(image: UIImage(named: "photo3.png")),
+             photos: [
+                Photo(image: UIImage(named: "photo1.png")),
+                Photo(image: UIImage(named: "photo2.png")),
+                Photo(image: UIImage(named: "photo3.png")),
+                Photo(image: UIImage(named: "photo4.png"))
+             ]),
         User(firstName: "Alice",
-               secondName: "Morgan",
-               userPhoto: Photo(image: UIImage(named: "photo4.png"))),
+             secondName: "Morgan",
+             userPhoto: Photo(image: UIImage(named: "photo4.png")),
+             photos: [Photo]()),
         User(firstName: "Peter",
-               secondName: "Bosko",
-               userPhoto: Photo(image: UIImage(named: "photo5.png"))),
+             secondName: "Bosko",
+             userPhoto: Photo(image: UIImage(named: "photo5.png")),
+             photos: [
+                Photo(image: UIImage(named: "photo1.png")),
+                Photo(image: UIImage(named: "photo2.png")),
+                Photo(image: UIImage(named: "photo3.png")),
+                Photo(image: UIImage(named: "photo4.png"))
+             ]),
         User(firstName: "Ann",
-               secondName: "Wood",
-               userPhoto: nil),
+             secondName: "Wood",
+             userPhoto: nil,
+             photos: [Photo]()),
         User(firstName: "Danila",
-               secondName: "Kovchiy",
-               userPhoto: Photo(image: UIImage(named: "photo7.png"))),
+             secondName: "Kovchiy",
+             userPhoto: Photo(image: UIImage(named: "photo7.png")),
+             photos: [Photo]()),
         User(firstName: "Booker",
-               secondName: "De Witt",
-               userPhoto: nil),
+             secondName: "De Witt",
+             userPhoto: nil,
+             photos: [Photo]()),
         User(firstName: "Daizy",
-               secondName: "Fitzroy",
-               userPhoto: nil),
+             secondName: "Fitzroy",
+             userPhoto: nil,
+             photos: [Photo]()),
         User(firstName: " Rosalind",
-               secondName: "Lutece",
-               userPhoto: nil),
+             secondName: "Lutece",
+             userPhoto: nil,
+             photos: [Photo]()),
         User(firstName: "Robert",
-               secondName: "Lutece",
-               userPhoto: nil),
+             secondName: "Lutece",
+             userPhoto: nil,
+             photos: [
+                Photo(image: UIImage(named: "photo1.png")),
+                Photo(image: UIImage(named: "photo2.png")),
+                Photo(image: UIImage(named: "photo3.png")),
+                Photo(image: UIImage(named: "photo4.png"))
+             ]),
         User(firstName: "Zachary",
-               secondName: "Hale Comstock",
-               userPhoto: nil),
+             secondName: "Hale Comstock",
+             userPhoto: nil,
+             photos: [Photo]()),
         User(firstName: "Elizabeth",
-               secondName: "",
-               userPhoto: nil),
+             secondName: "",
+             userPhoto: nil,
+             photos: [Photo]()),
         User(firstName: "Jeremiah",
-               secondName: "Fink",
-               userPhoto: nil),
+             secondName: "Fink",
+             userPhoto: nil,
+             photos: [
+                Photo(image: UIImage(named: "photo1.png")),
+                Photo(image: UIImage(named: "photo2.png")),
+                Photo(image: UIImage(named: "photo3.png")),
+                Photo(image: UIImage(named: "photo4.png"))
+             ]),
         User(firstName: "Cornelius",
-               secondName: "Slate",
-               userPhoto: nil)
+             secondName: "Slate",
+             userPhoto: nil,
+             photos: [Photo]())
     ]
     
-     func getIndexes() -> [String: [User]] {
-         var dictionary = [String: [User]]()
-         for friend in FriendStorage.shared.friends {
-             let key = friend.secondName == ""
-             ?  String(friend.firstName.prefix(1))
-             :  String(friend.secondName.prefix(1))
-             if !dictionary.keys.contains(key) {
-                 let array = getArrayForKey(for: key)
-                 dictionary.updateValue(array, forKey: key)
-             }
+    func getIndexes() -> [String: [User]] {
+        var dictionary = [String: [User]]()
+        for friend in FriendStorage.shared.friends {
+            let key = friend.secondName == ""
+            ?  String(friend.firstName.prefix(1))
+            :  String(friend.secondName.prefix(1))
+            if !dictionary.keys.contains(key) {
+                let array = getArrayForKey(for: key)
+                dictionary.updateValue(array, forKey: key)
+            }
         }
         return dictionary
     }

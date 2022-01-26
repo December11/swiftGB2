@@ -49,8 +49,6 @@ final class FeedViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     //MARK: -Animation
-    
-    
     func loadingDotes() {
         UIView.animate(withDuration: shortDuration, delay: 0, options: [.repeat, .autoreverse, .curveEaseInOut]) { [self] in
             loadingViews[0].alpha = 1
