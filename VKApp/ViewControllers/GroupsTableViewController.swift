@@ -19,7 +19,7 @@ class GroupsTableViewController: UITableViewController {
         else { return }
         let group = allGroupsController.groups[groupIndexPath.row]
         if !self.groups.contains(group) {
-            self.groups.append(allGroupsController.groups[groupIndexPath.row])
+            self.groups.append(allGroupsController.filteredGroups[groupIndexPath.row])
         }
         tableView.reloadData()
     }

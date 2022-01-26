@@ -56,14 +56,53 @@ final class FeedCell: UITableViewCell {
         pageControl.numberOfPages = feed.images.count
     }
     
+    override func awakeFromNib() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(userPhotoTapped(_:)))
+        userPhotoBackground.addGestureRecognizer(gesture)
+    }
+    
+    
+    @objc
+    func userPhotoTapped(_ sender: Any) {
+        UIView.animate(withDuration: 0.2) { 
+            self.userPhotoBackground.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.2) {
+                self.userPhotoBackground.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            }
+        }
+    }
+    
     @IBAction func like(_ sender: UIButton) {
         sender.isSelected.toggle()
         feed?.isLiked.toggle()
         
         let count = feed?.likesCount ?? 0
         sender.setTitle(String(count), for: .init())
-        let imageTitle = sender.isSelected ? "hand.thumbsup.circle.fill" : "hand.thumbsup.circle"
-        sender.setImage(UIImage(systemName: imageTitle), for: .init())
+        likeAnimate()
+    }
+    
+    func likeAnimate() {
+        UIView.transition(with: self.likeButton, duration: 0.1, options: .transitionCrossDissolve) { [self] in
+            let image = likeButton.isSelected
+            ? UIImage(systemName: "hand.thumbsup.circle.fill")
+            : UIImage(systemName: "hand.thumbsup.circle")
+            likeButton.setImage(image, for: .init())
+        }
+        
+        UIView.animate(withDuration: 0.3, delay: 0.1, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.5, options: .curveEaseInOut) { [self] in
+            likeButton.imageView?.frame.origin.y += 1
+        } completion: { [self] isCompletion in
+            likeButton.imageView?.frame.origin.y -= 1
+        }
+    }
+    
+    func tapAtImageAnimate() {
+        UIView.animate(withDuration: 2.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut) { [self] in
+            userPhoto.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        } completion: { isCompletion in
+            print("tapped on image")
+        }
     }
 }
 
