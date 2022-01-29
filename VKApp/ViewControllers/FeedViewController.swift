@@ -14,7 +14,7 @@ final class FeedViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var loadingViews: [UIView]!
     @IBOutlet weak var animatedView: UIView!
     
-    private let loadDuration = 2.0
+    private let loadDuration = 20.0
     private let shortDuration = 0.5
     
     override func viewDidLoad() {
@@ -60,5 +60,4 @@ final class FeedViewController: UIViewController, UITableViewDelegate, UITableVi
             loadingViews[2].alpha = 1
         }
     }
-
 }

@@ -329,7 +329,7 @@
         <!--Friends-->
         <scene sceneID="wdR-du-cj4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zlU-DJ-xOu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zlU-DJ-xOu" customClass="CustomNavigationController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" id="WyS-vE-5fW">
                         <imageReference key="image" image="person.2" catalog="system" symbolScale="default"/>
                         <imageReference key="selectedImage" image="person.2.fill" catalog="system" symbolScale="default"/>

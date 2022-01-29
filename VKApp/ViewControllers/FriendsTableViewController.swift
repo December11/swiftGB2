@@ -101,3 +101,10 @@ class FriendsTableViewController: UITableViewController {
     
     
 }
+
+
+extension FriendsTableViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        true
+    }
+}
