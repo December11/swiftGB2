@@ -36,19 +36,14 @@ final class PopAnimation: NSObject, UIViewControllerAnimatedTransitioning {
             destination.view.setFrameX(0)
             source.view.setFrameX(source.view.bounds.width)
         } completion: { isFinished in
-            transitionContext.containerView.transform = .identity
-            source.view.transform = .identity
-            destination.view.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            
-            if (transitionContext.transitionWasCancelled) {
-                destination.view.removeFromSuperview()
-            } else {
-                source.view.removeFromSuperview()
+            if isFinished && !transitionContext.transitionWasCancelled {
+                source.removeFromParent()
+            } else if transitionContext.transitionWasCancelled {
+                destination.view.transform = .identity
+                
             }
+            destination.view.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             transitionContext.completeTransition(isFinished)
         }
-        
     }
-    
-    
 }
