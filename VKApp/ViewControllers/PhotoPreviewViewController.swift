@@ -26,8 +26,14 @@ class PhotoPreviewViewController: UIViewController {
         rightSwipeGesture.direction = .right
         let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipped(_:)))
         leftSwipeGesture.direction = .left
+        
+        let downSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(dismissed(_:)))
+        downSwipeGesture.direction = .down
+        
         currentPhoto.addGestureRecognizer(rightSwipeGesture)
         currentPhoto.addGestureRecognizer(leftSwipeGesture)
+        currentPhoto.addGestureRecognizer(downSwipeGesture)
+        
         newPhotoLeadingConstraint.constant = UIScreen.main.bounds.width
         newPhotoTrailingConstraint.constant = UIScreen.main.bounds.width
         
@@ -37,6 +43,11 @@ class PhotoPreviewViewController: UIViewController {
     
         likeButton.setTitle("0", for: .init())
         likeButton.setImage(UIImage(systemName: "hand.thumbsup.circle"), for: .init())
+        
+    }
+    
+    @objc func dismissed(_ gesture: UISwipeGestureRecognizer) {
+        guard gesture.direction == .down else { return }
         
     }
     

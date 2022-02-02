@@ -11,8 +11,6 @@ import UIKit
 final class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
     var isStarted = false
     var shouldFinish = false
-    
-    
 }
 
 final class CustomNavigationController: UINavigationController, UINavigationControllerDelegate {

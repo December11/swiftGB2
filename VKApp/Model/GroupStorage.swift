@@ -17,4 +17,6 @@ final class GroupStorage {
         Group(title: "wathcing WWDC together'22", image: nil),
         Group(title: "Freelance office jobs for Swift developers",
               image: UIImage(named: "groupPhoto1.jpg"))]
+    
+    private init() {}
 }

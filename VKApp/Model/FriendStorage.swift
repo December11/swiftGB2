@@ -103,6 +103,8 @@ final class FriendStorage {
              photos: [Photo]())
     ]
     
+    private init() {}
+    
     func getIndexes() -> [String: [User]] {
         var dictionary = [String: [User]]()
         for friend in FriendStorage.shared.friends {
