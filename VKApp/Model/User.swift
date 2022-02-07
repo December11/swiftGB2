@@ -17,19 +17,20 @@ final class User {
     let codeColor: CGColor
     var photos = [Photo]() //в виде массива на будущее. Все фотки пользователя, могут быть показаны на экране фото
     
-    init(firstName: String, secondName: String, userPhoto: Photo?) {
+    init(firstName: String, secondName: String, userPhoto: Photo?, photos: [Photo]) {
         self.firstName = firstName
         self.secondName = secondName
         self.userPhoto = userPhoto ?? nil
+        self.photos = photos
         
-        if self.userPhoto != nil { photos.append(userPhoto!) }
+        if self.userPhoto != nil { self.photos.append(userPhoto!) }
         codeColor = CGColor(red: CGFloat.random(in: 155...255)/255,
                         green: CGFloat.random(in: 155...255)/255,
                         blue: CGFloat.random(in: 155...255)/255,
                         alpha: 1.0)
     }
     
-    func addPhoto (photo: Photo) {
+    func addPhoto (_ photo: Photo) {
         photos.append(photo)
     }
     

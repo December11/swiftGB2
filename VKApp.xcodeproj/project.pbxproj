@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA08979227A1B7A600DBAFFC /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08979127A1B7A600DBAFFC /* PhotoPreviewViewController.swift */; };
 		BA1D5BAA27775A1B003CC32D /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1D5BA827775A1B003CC32D /* ImageCell.swift */; };
 		BA1D5BAB27775A1B003CC32D /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D5BA927775A1B003CC32D /* ImageCell.xib */; };
 		BA1D5BAE27775EFD003CC32D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1D5BAD27775EFD003CC32D /* User.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA08979127A1B7A600DBAFFC /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		BA1D5BA827775A1B003CC32D /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		BA1D5BA927775A1B003CC32D /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		BA1D5BAD27775EFD003CC32D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				BA7B7A4C276E404E000506F2 /* GroupsTableViewController.swift */,
 				BA7B7A50276E4194000506F2 /* AllGroupTableViewController.swift */,
 				BAD93B5A2792F13700794DC0 /* FeedViewController.swift */,
+				BA08979127A1B7A600DBAFFC /* PhotoPreviewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				BA772F702784E6F500EE46BD /* String.swift in Sources */,
 				BAD93B55279218CC00794DC0 /* AllGroupTableVC.swift in Sources */,
 				BA772F6C27849FB600EE46BD /* FriendStorage.swift in Sources */,
+				BA08979227A1B7A600DBAFFC /* PhotoPreviewViewController.swift in Sources */,
 				BA7B7A51276E4194000506F2 /* AllGroupTableViewController.swift in Sources */,
 				BA7B7A4F276E4074000506F2 /* FriendCollectionViewController.swift in Sources */,
 				BAD93B5B2792F13700794DC0 /* FeedViewController.swift in Sources */,

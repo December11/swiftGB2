@@ -59,6 +59,7 @@ final class FeedCell: UITableViewCell {
     override func awakeFromNib() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(userPhotoTapped(_:)))
         userPhotoBackground.addGestureRecognizer(gesture)
+        likeButton.configuration?.background.backgroundColor = .clear
     }
     
     
