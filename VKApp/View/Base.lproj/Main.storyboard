@@ -329,7 +329,7 @@
         <!--Friends-->
         <scene sceneID="wdR-du-cj4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zlU-DJ-xOu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zlU-DJ-xOu" customClass="CustomNavigationController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" id="WyS-vE-5fW">
                         <imageReference key="image" image="person.2" catalog="system" symbolScale="default"/>
                         <imageReference key="selectedImage" image="person.2.fill" catalog="system" symbolScale="default"/>
@@ -392,9 +392,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D0I-Al-am9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D0I-Al-am9">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="586" id="QQ7-Vd-BNo" customClass="FeedCell" customModule="VKApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="586"/>
@@ -403,6 +402,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="586"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEU-rL-J8w">
+                                                    <rect key="frame" x="20" y="586" width="374" height="0.0"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" id="b8Y-lf-YJs"/>
+                                                    </constraints>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ymh-e5-Nse">
                                                     <rect key="frame" x="16" y="16" width="382" height="48"/>
                                                     <subviews>
@@ -564,6 +570,9 @@
                                                             <buttonConfiguration key="configuration" style="plain" imagePadding="4">
                                                                 <imageReference key="image" image="arrowshape.turn.up.forward" catalog="system" symbolScale="default"/>
                                                             </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="share:" destination="QQ7-Vd-BNo" eventType="touchUpInside" id="hFB-IJ-9Yf"/>
+                                                            </connections>
                                                         </button>
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="100" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Heh-Yw-oje">
                                                             <rect key="frame" x="204" y="0.0" width="118.5" height="32"/>
@@ -610,7 +619,10 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="J9I-HK-OwV" secondAttribute="bottom" constant="16" id="11w-xL-fl6"/>
                                                 <constraint firstItem="J9I-HK-OwV" firstAttribute="top" secondItem="eoI-sk-HUj" secondAttribute="bottom" constant="16" id="3Wy-AY-3pm"/>
+                                                <constraint firstItem="LEU-rL-J8w" firstAttribute="leading" secondItem="ZvR-Ec-jn1" secondAttribute="leadingMargin" id="3lT-eE-4tW"/>
+                                                <constraint firstAttribute="bottom" secondItem="LEU-rL-J8w" secondAttribute="bottom" id="7V8-S2-JDx"/>
                                                 <constraint firstItem="J9I-HK-OwV" firstAttribute="leading" secondItem="ZvR-Ec-jn1" secondAttribute="leading" constant="16" id="Nrp-dd-1FF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LEU-rL-J8w" secondAttribute="trailing" id="TV0-rw-Vup"/>
                                                 <constraint firstAttribute="trailing" secondItem="J9I-HK-OwV" secondAttribute="trailing" constant="16" id="Taq-6a-1HW"/>
                                                 <constraint firstItem="eoI-sk-HUj" firstAttribute="leading" secondItem="ZvR-Ec-jn1" secondAttribute="leading" constant="16" id="Ykd-7N-4JB"/>
                                                 <constraint firstAttribute="trailing" secondItem="eoI-sk-HUj" secondAttribute="trailing" constant="16" id="Z24-KY-D7v"/>
@@ -630,6 +642,8 @@
                                             <outlet property="likeButton" destination="8FK-MX-ooA" id="azS-yP-Xk2"/>
                                             <outlet property="pageControl" destination="xY6-TZ-kAB" id="sRB-Tb-ob9"/>
                                             <outlet property="replyButton" destination="egB-gG-FrD" id="cSs-vU-Zpq"/>
+                                            <outlet property="separator" destination="LEU-rL-J8w" id="00c-3h-S63"/>
+                                            <outlet property="shareButton" destination="kdh-yK-5TZ" id="OSn-tQ-zne"/>
                                             <outlet property="userName" destination="FXQ-VA-Axk" id="uzA-9l-YSJ"/>
                                             <outlet property="userPhoto" destination="h8Y-dw-T9a" id="C8G-MD-4gM"/>
                                             <outlet property="userPhotoBackground" destination="qVf-TQ-cSr" id="Mqn-kG-2tC"/>
@@ -809,6 +823,9 @@
         <namedColor name="secondaryText">
             <color red="0.63137254901960782" green="0.63137254901960782" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

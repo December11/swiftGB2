@@ -14,7 +14,7 @@ final class FeedViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var loadingViews: [UIView]!
     @IBOutlet weak var animatedView: UIView!
     
-    private let loadDuration = 2.0
+    private let loadDuration = 5.0
     private let shortDuration = 0.5
     
     override func viewDidLoad() {
@@ -28,21 +28,34 @@ final class FeedViewController: UIViewController, UITableViewDelegate, UITableVi
         feedNews = FeedStorage.shared.feedNews.sorted(by: { $0 > $1 })
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         feedNews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let currentFeed = feedNews[indexPath.row]
+        
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as? FeedCell
         else { return UITableViewCell() }
         
-        let currentFeed = feedNews[indexPath.row]
-        cell.configureFeedCell(feed: currentFeed)
+        let isLast = indexPath.row == feedNews.count-1
+        cell.configureFeedCell(feed: currentFeed, isLast: isLast) {
+            var sharedItem = [Any]()
+            var array = [String]()
+            if let message = currentFeed.messageText {
+                array.append(message)
+            }
+            sharedItem = !currentFeed.images.isEmpty ? currentFeed.images.compactMap(\.image) : array
+            
+            let activityView = UIActivityViewController(activityItems: sharedItem, applicationActivities: nil)
+            self.present(activityView, animated: true, completion: nil)
+        }
+        
         
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
@@ -60,5 +73,4 @@ final class FeedViewController: UIViewController, UITableViewDelegate, UITableVi
             loadingViews[2].alpha = 1
         }
     }
-
 }

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BA08979227A1B7A600DBAFFC /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08979127A1B7A600DBAFFC /* PhotoPreviewViewController.swift */; };
+		BA08979527A46C9F00DBAFFC /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08979427A46C9F00DBAFFC /* CustomNavigationController.swift */; };
+		BA08979727A46E4B00DBAFFC /* Push3DCubicAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08979627A46E4B00DBAFFC /* Push3DCubicAnimation.swift */; };
+		BA08979927A4767E00DBAFFC /* Pop3DCubicAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08979827A4767E00DBAFFC /* Pop3DCubicAnimation.swift */; };
+		BA08979B27A589FA00DBAFFC /* PushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08979A27A589FA00DBAFFC /* PushAnimation.swift */; };
+		BA08979D27A58A3800DBAFFC /* PopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08979C27A58A3800DBAFFC /* PopAnimation.swift */; };
+		BA08979F27A5A95D00DBAFFC /* UIView+AnchorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA08979E27A5A95D00DBAFFC /* UIView+AnchorPoint.swift */; };
 		BA1D5BAA27775A1B003CC32D /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1D5BA827775A1B003CC32D /* ImageCell.swift */; };
 		BA1D5BAB27775A1B003CC32D /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA1D5BA927775A1B003CC32D /* ImageCell.xib */; };
 		BA1D5BAE27775EFD003CC32D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1D5BAD27775EFD003CC32D /* User.swift */; };
@@ -43,6 +49,12 @@
 
 /* Begin PBXFileReference section */
 		BA08979127A1B7A600DBAFFC /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
+		BA08979427A46C9F00DBAFFC /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		BA08979627A46E4B00DBAFFC /* Push3DCubicAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push3DCubicAnimation.swift; sourceTree = "<group>"; };
+		BA08979827A4767E00DBAFFC /* Pop3DCubicAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pop3DCubicAnimation.swift; sourceTree = "<group>"; };
+		BA08979A27A589FA00DBAFFC /* PushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimation.swift; sourceTree = "<group>"; };
+		BA08979C27A58A3800DBAFFC /* PopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimation.swift; sourceTree = "<group>"; };
+		BA08979E27A5A95D00DBAFFC /* UIView+AnchorPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AnchorPoint.swift"; sourceTree = "<group>"; };
 		BA1D5BA827775A1B003CC32D /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		BA1D5BA927775A1B003CC32D /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		BA1D5BAD27775EFD003CC32D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -89,6 +101,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA08979327A46C8C00DBAFFC /* UIHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				BA08979427A46C9F00DBAFFC /* CustomNavigationController.swift */,
+				BA08979A27A589FA00DBAFFC /* PushAnimation.swift */,
+				BA08979C27A58A3800DBAFFC /* PopAnimation.swift */,
+				BA08979627A46E4B00DBAFFC /* Push3DCubicAnimation.swift */,
+				BA08979827A4767E00DBAFFC /* Pop3DCubicAnimation.swift */,
+			);
+			path = UIHelpers;
+			sourceTree = "<group>";
+		};
 		BA1D5BA62777597E003CC32D /* Reusable Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +160,7 @@
 			children = (
 				BA4CDE08277797A300B14B00 /* GroupsComparable.swift */,
 				BA4CDE0A277BA73900B14B00 /* UIView+Inspectable.swift */,
+				BA08979E27A5A95D00DBAFFC /* UIView+AnchorPoint.swift */,
 				BA772F6D2784A11C00EE46BD /* FriendsComparable.swift */,
 				BA772F6F2784E6F500EE46BD /* String.swift */,
 				BAD93B54279218CC00794DC0 /* AllGroupTableVC.swift */,
@@ -165,6 +190,7 @@
 		BABCEB28276A699700C0ED3E /* VKApp */ = {
 			isa = PBXGroup;
 			children = (
+				BA08979327A46C8C00DBAFFC /* UIHelpers */,
 				BA4CDE072777977E00B14B00 /* Extensions */,
 				BA1D5BAC27775EF0003CC32D /* Model */,
 				BABCEB3F276A69EC00C0ED3E /* ViewControllers */,
@@ -288,24 +314,30 @@
 				BABCEB2E276A699700C0ED3E /* LoginViewController.swift in Sources */,
 				BA7B7A4D276E404E000506F2 /* GroupsTableViewController.swift in Sources */,
 				BAD93B5F2792F52B00794DC0 /* FeedCell.swift in Sources */,
+				BA08979927A4767E00DBAFFC /* Pop3DCubicAnimation.swift in Sources */,
+				BA08979B27A589FA00DBAFFC /* PushAnimation.swift in Sources */,
 				BAE893F62793011800331380 /* Date.swift in Sources */,
 				BABCEB2A276A699700C0ED3E /* AppDelegate.swift in Sources */,
+				BA08979F27A5A95D00DBAFFC /* UIView+AnchorPoint.swift in Sources */,
 				BA4CDE052777757500B14B00 /* ImageCollectionCell.swift in Sources */,
 				BA4CDE0B277BA73900B14B00 /* UIView+Inspectable.swift in Sources */,
 				BA1D5BB027776112003CC32D /* Group.swift in Sources */,
 				BA1D5BAA27775A1B003CC32D /* ImageCell.swift in Sources */,
 				BA772F44277E1F9E00EE46BD /* GroupStorage.swift in Sources */,
 				BAD93B592792EBCE00794DC0 /* Feed.swift in Sources */,
+				BA08979727A46E4B00DBAFFC /* Push3DCubicAnimation.swift in Sources */,
 				BA772F4827824A2900EE46BD /* Photo.swift in Sources */,
 				BA1D5BAE27775EFD003CC32D /* User.swift in Sources */,
 				BA772F702784E6F500EE46BD /* String.swift in Sources */,
 				BAD93B55279218CC00794DC0 /* AllGroupTableVC.swift in Sources */,
 				BA772F6C27849FB600EE46BD /* FriendStorage.swift in Sources */,
 				BA08979227A1B7A600DBAFFC /* PhotoPreviewViewController.swift in Sources */,
+				BA08979527A46C9F00DBAFFC /* CustomNavigationController.swift in Sources */,
 				BA7B7A51276E4194000506F2 /* AllGroupTableViewController.swift in Sources */,
 				BA7B7A4F276E4074000506F2 /* FriendCollectionViewController.swift in Sources */,
 				BAD93B5B2792F13700794DC0 /* FeedViewController.swift in Sources */,
 				BA7B7A4B276E402F000506F2 /* FriendsTableViewController.swift in Sources */,
+				BA08979D27A58A3800DBAFFC /* PopAnimation.swift in Sources */,
 				BAE893F8279320E300331380 /* FeedComparable.swift in Sources */,
 				BABCEB2C276A699700C0ED3E /* SceneDelegate.swift in Sources */,
 				BAD93B5727921CC100794DC0 /* FriendsTableVC.swift in Sources */,

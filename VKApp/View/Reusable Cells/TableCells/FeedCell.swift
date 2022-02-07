@@ -16,15 +16,19 @@ final class FeedCell: UITableViewCell {
     @IBOutlet weak var feedMessage: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var replyButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var imgScrollView: UIScrollView!
     @IBOutlet weak var imgView: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var separator: UIView!
     
     var feedImageViews = [UIImageView]()
     var feed: Feed?
+    var onShare: () -> () = {}
     
-    func configureFeedCell(feed: Feed) {
+    func configureFeedCell(feed: Feed, isLast: Bool, onShare: @escaping () -> ()) {
         self.feed = feed
+        self.onShare = onShare
         self.userName.text = feed.user.userName
         feedCreationDate.text = feed.date.toString(dateFormat: .dateTime)
         userPhotoBackground.backgroundColor = UIColor(cgColor: feed.user.codeColor)
@@ -54,6 +58,9 @@ final class FeedCell: UITableViewCell {
             imgScrollView.addSubview(feedImageViews[i])
         }
         pageControl.numberOfPages = feed.images.count
+        
+        separator.isHidden = isLast
+        
     }
     
     override func awakeFromNib() {
@@ -61,7 +68,6 @@ final class FeedCell: UITableViewCell {
         userPhotoBackground.addGestureRecognizer(gesture)
         likeButton.configuration?.background.backgroundColor = .clear
     }
-    
     
     @objc
     func userPhotoTapped(_ sender: Any) {
@@ -74,6 +80,14 @@ final class FeedCell: UITableViewCell {
         }
     }
     
+    private func anyObject(of feed: Feed) -> [Any] {
+        var array = [String]()
+        if let message = feed.messageText {
+            array.append(message)
+        }
+        return !feed.images.isEmpty ? feed.images : array
+    }
+    
     @IBAction func like(_ sender: UIButton) {
         sender.isSelected.toggle()
         feed?.isLiked.toggle()
@@ -81,6 +95,12 @@ final class FeedCell: UITableViewCell {
         let count = feed?.likesCount ?? 0
         sender.setTitle(String(count), for: .init())
         likeAnimate()
+    }
+    
+    @IBAction func share(_ sender: Any) {
+        self.onShare()
+        
+        
     }
     
     func likeAnimate() {
